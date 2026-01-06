@@ -4,7 +4,33 @@ import models.Persona;
 
 public class App {
     public static void main(String[] args) {
+       // runIntTree();
+       runTree();
+        
+    }
 
+    public static void runTree() {
+        Tree<Persona> tree = new Tree<Persona>();
+        tree.insert(new Persona("Pablo", 21));
+        tree.insert(new Persona("María", 23));
+        tree.insert(new Persona("Luis", 19));
+        tree.insert(new Persona("Pedro", 23));
+        tree.insert(new Persona("Ana", 25));
+
+        System.out.println("InOrder");
+        tree.inOrder();
+
+        System.out.println("Búsqueda por edad");
+        Persona findPersona = tree.searchByAge(23);
+        if(findPersona != null) {
+            System.out.println(findPersona);
+        } else {
+            System.out.println("No se encontro");
+        }
+
+    }
+
+    public static void runIntTree() {
         System.out.println("=== Árbol de enteros ===");
         IntTree intTree = new IntTree();
         intTree.insert(10);

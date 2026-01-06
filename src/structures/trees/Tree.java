@@ -1,30 +1,30 @@
 package structures.trees;
 
+import models.Persona;
 import structures.node.Node;
 
 public class Tree<T extends Comparable<T>> {
 
     private Node<T> root;
-    private int size;
 
     public Tree() {
         root = null;
-        size = 0;
     }
 
     public void insert(T value) {
         root = insertRecursive(root, value);
-        size++;
     }
 
-    protected Node<T> insertRecursive(Node<T> current, T value) {
+    private Node<T> insertRecursive(Node<T> current, T value) {
+
         if (current == null) {
             return new Node<>(value);
         }
 
         if (value.compareTo(current.getValue()) < 0) {
             current.setLeft(insertRecursive(current.getLeft(), value));
-        } else if (value.compareTo(current.getValue()) > 0) {
+        } 
+        else if (value.compareTo(current.getValue()) > 0) {
             current.setRight(insertRecursive(current.getRight(), value));
         }
 
@@ -44,29 +44,49 @@ public class Tree<T extends Comparable<T>> {
         }
     }
 
-    public void preOrder() {
-        preOrderRecursive(root);
-        System.out.println();
+    public T search(T value) {
+        return searchRecursive(root, value);
     }
 
-    private void preOrderRecursive(Node<T> node) {
-        if (node != null) {
-            System.out.print(node.getValue() + " ");
-            preOrderRecursive(node.getLeft());
-            preOrderRecursive(node.getRight());
+    public T searchRecursive(Node<T> root2, T value) {
+
+        if (root2 == null) {
+            return null;
+        }
+
+        int comp = value.compareTo(root2.getValue());
+    
+        if (comp == 0) {
+            return root2.getValue();
+        } 
+        else if (comp < 0) {
+            return searchRecursive(root2.getLeft(), value);
+        } 
+        else {
+            return searchRecursive(root2.getRight(), value);
         }
     }
 
-    public void postOrder() {
-        postOrderRecursive(root);
-        System.out.println();
+    public T searchByAge(int age) {
+        return searchByAgeRecursive(root, age);
     }
 
-    private void postOrderRecursive(Node<T> node) {
-        if (node != null) {
-            postOrderRecursive(node.getLeft());
-            postOrderRecursive(node.getRight());
-            System.out.print(node.getValue() + " ");
+    private T searchByAgeRecursive(Node<T> current, int age) {
+
+        if (current == null) {
+            return null;
+        }
+
+        Persona personaActual = (Persona) current.getValue();
+
+        if (personaActual.getEdad() == age) {
+            return current.getValue();
+        }
+
+        if (age < personaActual.getEdad()) {
+            return searchByAgeRecursive(current.getLeft(), age);
+        } else {
+            return searchByAgeRecursive(current.getRight(), age);
         }
     }
 }

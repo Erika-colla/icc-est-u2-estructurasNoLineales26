@@ -18,8 +18,14 @@ public class Persona implements Comparable<Persona> {
     }
 
     @Override
-    public int compareTo(Persona o) {
-        return Integer.compare(this.edad, o.edad);
+    public int compareTo(Persona otra) {
+        //this.edad > otra.getEdad();
+        int resulComp = Integer.compare(this.edad, otra.getEdad());
+        if(resulComp != 0) {
+            return resulComp;
+        }
+        //Compara otro elemento
+        return this.nombre.compareTo(otra.getNombre());
     }
 
     @Override
