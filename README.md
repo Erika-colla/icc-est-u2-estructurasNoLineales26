@@ -55,3 +55,38 @@ Este proceso se realiza de forma recursiva hasta encontrar el elemento o llegar 
 ![alt text](<Captura de pantalla 2026-01-06 a la(s) 8.59.43 a. m..png>)
 ### Captura 2 - Salida de consola
 ![alt text](<salida de consola.png>)
+
+---
+
+## Práctica de Graphs
+
+### Objetivo
+Implementar un Grafo en Java utilizando las clases genéricas `Node<T>` y `Graph<T>`,
+empleando una representación mediante listas de adyacencia.
+
+El grafo se implementa usando objetos de tipo `String`, permitiendo modelar las
+relaciones entre nodos a través de sus nodos conocidos.
+
+### Requisitos técnicos
+- Implementar la clase genérica:
+  - `class Graph<T>`
+- Implementar la clase:
+  - `class Node<T>`
+
+### Implementaciones obligatorias
+- Implementación del grafo utilizando objetos `String`.
+- Uso del atributo `conocidos` en la clase `Node<T>` para almacenar los nodos
+  adyacentes.
+- Grafo no dirigido.
+
+### Evidencias
+
+#### Evidencia 1 – Código fuente
+Captura del código fuente de la clase `Graph.java`, donde se observa la
+implementación del grafo y la conexión entre nodos.
+  
+![alt text](<Captura de pantalla 2026-01-08 a la(s) 10.55.24 a. m..png>)
+![alt text](<Captura de pantalla 2026-01-08 a la(s) 10.55.50 a. m..png>)
+
+#### Evidencia 2 – Salida por consola
+![alt text](<Captura de pantalla 2026-01-08 a la(s) 10.53.44 a. m..png>)

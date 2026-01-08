@@ -1,12 +1,41 @@
 import structures.IntTree;
+import structures.graph.Graph;
+import structures.node.Node;
 import structures.trees.Tree;
+
+import java.util.List;
+
 import models.Persona;
 
 public class App {
     public static void main(String[] args) {
        // runIntTree();
-       runTree();
+       //runTree();
+       runGraph();
         
+    }
+
+    public static void runGraph(){
+        Graph<String> graph = new Graph<>();
+
+        Node<String> nA = new Node<String>("A");
+        Node<String> nB = new Node<String>("B");
+        Node<String> nC = new Node<String>("C");
+        Node<String> nD = new Node<String>("D");
+
+        graph.addNode(nA);
+        graph.addEdge(nA, nB);
+        graph.addEdge(nA, nC);
+        graph.addEdge(nB, nD);
+        graph.addEdge(nC, nD);
+        graph.printGraph();
+
+        //Conectados de A
+        System.out.println("Neighbors de A:");
+        List<Node<String>> neighbors = graph.getMapa().get(nA);
+        for (Node<String> neighbor : neighbors) {
+            System.out.println(neighbor);
+        }
     }
 
     public static void runTree() {
